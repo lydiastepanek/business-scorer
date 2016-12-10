@@ -3,7 +3,7 @@ import re
 import requests
 import sys
 
-from facebook_score import FacebookScorer
+import facebook_score
 
 class BusinessScorer(object):
     business_name = ''
@@ -11,9 +11,8 @@ class BusinessScorer(object):
     url = ''
 
     def run(self, number):
-        print FacebookScorer().run()
+        print facebook_score.run()
         return number;
-
 
 if __name__ == "__main__":
     scorer = BusinessScorer()
