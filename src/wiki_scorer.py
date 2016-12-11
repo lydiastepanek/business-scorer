@@ -5,10 +5,11 @@ from dateutil.relativedelta import relativedelta
 def run(business_name):
     business_search_response = search_business(business_name)
     total_hits = business_search_response["query"]["searchinfo"]["totalhits"]
+    updated_recently = 0
     if total_hits > 0:
         first_result_title_id = business_search_response["query"]["search"][0]["title"]
         last_updated = get_last_update_date_of(first_result_title_id)
-    updated_recently = check_recently_updated(last_updated) if last_updated else 0
+        updated_recently = check_updated_past_year(last_updated) 
     total_rating = (float(total_hits) / 100) + (.5 * updated_recently)
     return min(total_rating, 1)
 
@@ -34,11 +35,6 @@ def parse_date(json_response):
     for count, (page_id, info) in enumerate(json_response.iteritems(), 1):
         return json_response[page_id]['revisions'][0]['timestamp']
 
-def check_recently_updated(date_string):
+def check_updated_past_year(date_string):
     parsed_date = datetime.strptime(date_string[:10], "%Y-%m-%d")
     return datetime.now() - relativedelta(years=1) < parsed_date
-
-#  business_name = 'Asanda Aveda Spa Lounge'
-#  business_name = 'Sinatraa'
-business_name = 'Tim Jones'
-run(business_name)
