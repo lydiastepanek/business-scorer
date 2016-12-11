@@ -10,5 +10,5 @@ def run(business_name, business_address):
 def get_business_details(business_name, business_address):
     params = { "query" : business_name + " " + business_address }
     URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?" + urllib.urlencode(params) + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
-    googleResponse = urllib.urlopen(URL)
-    return json.loads(googleResponse.read())['results'][0]
+    google_response = urllib.urlopen(URL)
+    return json.loads(google_response.read())['results'][0]
