@@ -2,8 +2,8 @@ import urllib, json
 
 def run(business_name, business_address):
     json_response = get_business_details(business_name, business_address)
-    rating = json_response['rating'] if json_response['rating'] else 0
-    business_categories = len(json_response['types']) if json_response['types'] else 0
+    rating = json_response['rating'] if 'rating' in json_response else 0
+    business_categories = len(json_response['types']) if 'types' in json_response else 0
     total_rating = (float(rating) / 5) + (.05 * business_categories)
     return min(total_rating, 1)
 
