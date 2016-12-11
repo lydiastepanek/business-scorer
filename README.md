@@ -17,3 +17,5 @@ python business_scorer.py
 
 ## Notes:
 
+## To Do
+* Tests

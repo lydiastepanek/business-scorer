@@ -16,6 +16,6 @@ class BusinessScorer(object):
         wiki_score = src.wiki_scorer.run(business_name)
         return numpy.mean([google_score, wiki_score])
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     scorer = BusinessScorer()
     print scorer.run()

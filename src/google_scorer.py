@@ -8,7 +8,7 @@ def run(business_name, business_address):
     return min(total_rating, 1)
 
 def get_business_details(business_name, business_address):
-    params = { "query" : business_name + " " + business_address }
-    URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?" + urllib.urlencode(params) + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
+    params = { 'query' : business_name + ' ' + business_address }
+    URL = 'https://maps.googleapis.com/maps/api/place/textsearch/json?' + urllib.urlencode(params) + '&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg'
     google_response = urllib.urlopen(URL)
     return json.loads(google_response.read())['results'][0]
