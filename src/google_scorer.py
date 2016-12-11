@@ -1,9 +1,8 @@
 import urllib, json
-import pprint
 
 def run(business_name, business_address):
-    f = { "query" : business_name + " " + business_address }
-    URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?" + urllib.urlencode(f) + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
+    params = { "query" : business_name + " " + business_address }
+    URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?" + urllib.urlencode(params) + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
     googleResponse = urllib.urlopen(URL)
     jsonResponse = json.loads(googleResponse.read())['results'][0]
     rating = jsonResponse['rating'] if jsonResponse['rating'] else 0

@@ -13,7 +13,7 @@ url = ''
 class BusinessScorer(object):
 
     def run(self):
-        google_scorer.run(business_name, business_address)
+        return google_scorer.run(business_name, business_address)
 
 if __name__ == "__main__":
     scorer = BusinessScorer()
