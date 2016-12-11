@@ -3,7 +3,7 @@ import re
 import requests
 import sys
 
-import google_score
+import google_scorer
 
 business_name = 'Asanda Aveda Spa Lounge'
 business_address = '598 Broadway, New York, NY'
@@ -13,8 +13,8 @@ url = ''
 class BusinessScorer(object):
 
     def run(self):
-        google_score.run(business_name, business_address)
+        google_scorer.run(business_name, business_address)
 
 if __name__ == "__main__":
     scorer = BusinessScorer()
-    scorer.run()
+    print scorer.run()
