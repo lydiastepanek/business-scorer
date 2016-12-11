@@ -15,9 +15,16 @@ URL = "https://maps.googleapis.com/maps/api/geocode/json?" + urllib.urlencode(f)
 
 googleResponse = urllib.urlopen(URL)
 jsonResponse = json.loads(googleResponse.read())
+
 place_id = jsonResponse['results'][0]['place_id']
 
-DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
+#  DETAILS_URL = "https://maps.googleapis.com/maps/api/place/details/json?placeid=" + place_id + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
+#  googleResponse = urllib.urlopen(DETAILS_URL)
+#  jsonResponse = json.loads(googleResponse.read())
+#  print pprint.pprint(jsonResponse)
+
+
+DETAILS_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?placeid=" + place_id + "&key=AIzaSyDa2cfifSiwMIDSBRWRENhVej5fbuzfweg"
 googleResponse = urllib.urlopen(DETAILS_URL)
 jsonResponse = json.loads(googleResponse.read())
 print pprint.pprint(jsonResponse)
