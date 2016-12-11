@@ -14,13 +14,24 @@ I really wanted to use the Facebook Graph API and looked at such modules as pyth
 
 ##How the P Score is Calculated
 
-The P Score is an average of two scores, the Google Places score (the score calculated
-by metrics provided by the Google Places API) and the Wikipedia Score.
+The P Score is an average of two scores, the Google Places score (the score calculated by metrics provided by the Google Places API) and the Wikipedia Score.
 
 The Google Places score is between 0 and 1 depending on these factors:
-*
+* rating - the average rating that customers give the business (if not available
+  then 0)
+* business_categories - the number of categories this business falls under (i.e.
+  restaurant, airport, etc -- see
+  https://developers.google.com/places/web-service/supported_types). My
+  assumption here was that if the business has many products and industries,
+  then it is less likely to default given that if one of its products is not
+  successful, it can pivot.
+
 The Wikipedia score is between 0 and 1 depending on these factors:
-*
+* total_hits - the number of Wikipedia page results when you search the business
+  name
+* updated_recently - whether the first page result has been updated within the
+  past year (I used this metric to measure whether the business was still
+  relevant)
 
 ##To run
 ```
