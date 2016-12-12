@@ -38,6 +38,23 @@ The Wikipedia score is between 0 and 1 depending on these factors:
 python business_scorer.py "[Business Name]|[Business Address]"
 ```
 
+##Examples
+```
+# These are valid businesses
+> python business_scorer.py "Aveda Spa | 598 Broadway, New York, NY"
+P score: 0.5
+> python business_scorer.py "Home Depot | 40 W 23rd St, New York, NY 10010"
+P score: 0.845
+> python business_scorer.py "Home Depot | Louisville"
+P score: 0.845
+
+# This is an invalid business
+> python business_scorer.py "Miranda's Hardware Store | Louisville"
+P score: 0.0
+```
+As you can see from the above, business name and address do not need to be
+spelled perfectly because this code uses search-oriented APIs
+
 ##To Do
 I wanted to use the Facebook Graph API Page endpoint so that, given a business's Facebook page ID (the id in the url of its Facebook page, i.e. cocacola), I could access the business's following information:
 * is_permanently_closed
@@ -46,6 +63,9 @@ I wanted to use the Facebook Graph API Page endpoint so that, given a business's
 * founded
 * rating_count
 * app_links (app ids for mobile apps)
+
+The score is very forgiving and bases its score on returned results, so I would
+want to make it less forgiving/have fewer false positives.
 
 Given the downsides of oauth, I decided not to use the API, but may add this functionality in the future.
 

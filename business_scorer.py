@@ -15,4 +15,4 @@ def run(business_name, business_address):
     return str(numpy.mean([google_score, wiki_score]))
 
 if __name__ == '__main__':
-    print "The business's score is " + main(sys.argv[1:])
+    print "P score: " + main(sys.argv[1:])
