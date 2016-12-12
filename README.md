@@ -31,16 +31,14 @@ The Wikipedia score is between 0 and 1 depending on these factors:
   name
 * updated_recently - whether the first page result has been updated within the
   past year (I used this metric to measure whether the business was still
-  relevant)
+  in business)
 
 ##To run
 ```
-python business_scorer.py
+python business_scorer.py "[Business Name]|[Business Address]"
 ```
 
 ##To Do
-* Tests
-
 I wanted to use the Facebook Graph API Page endpoint so that, given a business's Facebook page ID (the id in the url of its Facebook page, i.e. cocacola), I could access the business's following information:
 * is_permanently_closed
 * can_checkin && checkins - Number of checkins at the business
@@ -48,4 +46,7 @@ I wanted to use the Facebook Graph API Page endpoint so that, given a business's
 * founded
 * rating_count
 * app_links (app ids for mobile apps)
+
 Given the downsides of oauth, I decided not to use the API, but may add this functionality in the future.
+
+I also need to add tests.
