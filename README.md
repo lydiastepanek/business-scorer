@@ -8,7 +8,7 @@ APIs used:
 * Google Places
 * Wikipedia
 
-I used APIs that dont require OAUTH because I wanted to minimize any manual intervention on the part of the user running the script.
+I used these APIs because I wanted to minimize any manual intervention on the part of the user running the script, and many APIs require OAUTH.
 
 I really wanted to use the Facebook Graph API and looked at such modules as python-sdk and facebook-sdk. See [To Do](##To Do) section for more details.
 
